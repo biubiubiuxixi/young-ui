@@ -1,0 +1,66 @@
+.tab {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left: 0;
+  list-style: none;
+  border-bottom: $tab-border-width solid $tab-border-color;
+  box-shadow: $tab-box-shadow;
+}
+.tab-line {
+  >.tab-item {
+    padding: $tab-item-padding-y $tab-item-padding-x;
+    cursor: pointer;
+    transition: $tab-transition;
+    &:hover, &:focus {
+      text-decoration: none;
+    }
+    &.is-disabled {
+      pointer-events: none;
+      color: $tab-item-disabled-color;
+      cursor: default;
+    }
+    &.is-active, &:hover {
+      color: $tab-item-active-color;
+      border-bottom: $tab-item-active-border-width solid $tab-item-active-color;
+    }
+  }
+}
+
+.tab-card {
+  box-shadow: none;
+  border-bottom: none;
+  position: relative;
+  &::after {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    border-bottom: $tab-border-width solid $tab-border-color;
+    content: "";
+    z-index: -1;
+  }
+  >.tab-item {
+    padding: $tab-item-padding-y $tab-item-padding-x;
+    cursor: pointer;
+    border: $tab-border-width solid transparent;
+    &.is-active {
+      color: $tab-item-active-color;
+      border: $tab-border-width solid $tab-border-color;
+      border-bottom: $tab-item-active-border-width solid $white;
+      border-radius: $tab-item-active-border-radius $tab-item-active-border-radius 0 0;
+    }
+    &:hover, &:focus {
+      color: $tab-item-active-color;
+    }
+    &.is-disabled {
+      pointer-events: none;
+      color: $tab-item-disabled-color;
+      cursor: default;
+    }
+  }
+}
+
+.tab-content {
+  padding: $tab-content-padding-y $tab-content-padding-x;
+}

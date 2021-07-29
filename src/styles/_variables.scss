@@ -288,3 +288,20 @@ $progress-bar-transition:           width .6s ease !default;
 // alert
 $alert-padding-y:               .375rem !default;
 $alert-padding-x:               .75rem !default;
+
+// tab
+$tab-border-width:            $border-width !default;
+$tab-border-color:            $border-color !default;
+$tab-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
+$tab-transition:              color .15s ease-in-out, border-color .15s ease-in-out !default;
+
+// tab-item
+$tab-item-padding-y:          .5rem !default;
+$tab-item-padding-x:          1rem !default;
+$tab-item-active-color:       $primary !default;
+$tab-item-active-border-width: 2px !default;
+$tab-item-disabled-color:     $gray-600 !default;
+$tab-item-active-border-radius:.5rem;
+
+$tab-content-padding-y:          0 !default;
+$tab-content-padding-x:          1rem !default;

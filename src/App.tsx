@@ -10,6 +10,8 @@ import Alert, {AlertType} from "./components/Alert/Alert";
 import Menu from "./components/Menu/Menu";
 import MenuItem from "./components/Menu/MenuItem";
 import SubMenu from "./components/Menu/SubMenu";
+import Tabs from "./components/Tabs/Tabs";
+import TabPane from "./components/Tabs/TabPane";
 
 function App() {
   return (
@@ -46,17 +48,18 @@ function App() {
             <MenuItem>link 3</MenuItem>
           </SubMenu>
         </Menu>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Tabs>
+          <TabPane label="one">第1个</TabPane>
+          <TabPane label="two">第2个</TabPane>
+          <TabPane label="three" disabled>第3个</TabPane>
+          <TabPane label="four">第4个</TabPane>
+        </Tabs>
+        <Tabs type="card">
+          <TabPane label="one">第1个</TabPane>
+          <TabPane label={<span>two</span>}>第2个</TabPane>
+          <TabPane label="three" disabled>第3个</TabPane>
+          <TabPane label="four">第4个</TabPane>
+        </Tabs>
       </header>
     </div>
   );
