@@ -22,7 +22,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Icon icon="coffee" size="lg" />
+        <Icon icon="coffee" size="lg" theme="primary" />
+        <Icon icon="coffee" size="lg" theme="danger" />
         <Button onClick={(e) => console.log(e)}>Default Button</Button>
         <Button buttonType={ButtonType.Primary}>Primary Button</Button>
         <Button buttonType={ButtonType.Danger}>Danger Button</Button>
