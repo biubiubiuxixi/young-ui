@@ -56,3 +56,36 @@ test('测试按钮组件', () => {
    expect(element).toBeTruthy();
 });
 ```
+
+### 图标 Icon解决方案
+- 上古时期 雪碧图（css sprite）
+- 近代 Font Icon
+- 现代 SVG
+
+SVG优势：
+- 完全可控
+- SVG 即取即用，Font Icon 要下载全部字体文件
+- Font Icon 有很多奇怪的 bug
+
+##### 使用开源的图标库
+https://fontawesome.com/v5.15/how-to-use/on-the-web/using-with/react
+
+安装
+```bash
+npm i --save @fortawesome/fontawesome-svg-core
+npm install --save @fortawesome/free-solid-svg-icons
+npm install --save @fortawesome/react-fontawesome
+```
+
+使用
+```tsx
+import ReactDOM from 'react-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+
+const element = <FontAwesomeIcon icon={faCoffee} />
+
+ReactDOM.render(element, document.body)
+```
+
+

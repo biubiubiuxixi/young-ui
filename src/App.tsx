@@ -5,6 +5,8 @@
  * @LastEditors: chelsea.jiang
  * @LastEditTime: 2021-05-28 22:35:34
  */
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 import Button, {ButtonSize, ButtonType} from "./components/Button/Button";
 import Alert, {AlertType} from "./components/Alert/Alert";
 import Menu from "./components/Menu/Menu";
@@ -12,11 +14,15 @@ import MenuItem from "./components/Menu/MenuItem";
 import SubMenu from "./components/Menu/SubMenu";
 import Tabs from "./components/Tabs/Tabs";
 import TabPane from "./components/Tabs/TabPane";
+import Icon from "./components/Icon/icon";
+
+library.add(fas);
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Icon icon="coffee" size="lg" />
         <Button onClick={(e) => console.log(e)}>Default Button</Button>
         <Button buttonType={ButtonType.Primary}>Primary Button</Button>
         <Button buttonType={ButtonType.Danger}>Danger Button</Button>
