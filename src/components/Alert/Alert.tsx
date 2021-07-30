@@ -8,6 +8,8 @@
 
 import React, {useState} from "react";
 import classNames from "classnames";
+import Transition from "../Transition/transition";
+import Icon from "../Icon/icon";
 
 export enum AlertType {
     Success = 'success',
@@ -27,26 +29,32 @@ interface AlertProps {
 
 const Alert: React.FC<AlertProps> = (props) => {
     const { className, type, title, content, closable, closeText, ...restProps } = props;
-    const [closed, setClosed] = useState(false); // 是否显示
+    const [closed, setClosed] = useState(true); // 是否显示 true为显示
     const classes = classNames('alert', className, {
         [`alert-${type}`]: type,
     });
+    const renderCloseIcon = <Icon icon="times" />;
     const renderCloseButton = () => {
-        return closable ? '关闭' : null;
+        return closable ? renderCloseIcon : null;
     }
-    if (closed) return null;
     return (
-        <div
-            role="alert"
-            className={classes}
-            {...restProps}
+        <Transition
+            in={closed}
+            timeout={300}
+            animation="zoom-in-right"
         >
-            <div className="alert-content-box">
-                {title && <div className="alert-title">{title}</div>}
-                {content && <div className="alert-content">{content}</div>}
+            <div
+                role="alert"
+                className={classes}
+                {...restProps}
+            >
+                <div className="alert-content-box">
+                    {title && <div className="alert-title">{title}</div>}
+                    {content && <div className="alert-content">{content}</div>}
+                </div>
+                <button className="alert-close" onClick={() => setClosed(false)}>{closeText ? closeText : renderCloseButton()}</button>
             </div>
-            <button className="alert-close" onClick={() => setClosed(true)}>{closeText ? closeText : renderCloseButton()}</button>
-        </div>
+        </Transition>
     );
 };
 export default Alert;

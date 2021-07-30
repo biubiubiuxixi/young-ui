@@ -78,7 +78,7 @@ describe('test Menu and MenuIem component', () => {
         expect(verMenuElement).toHaveClass('menu menu-vertical');
     })
     it('should show dropdown items when hover on submenu', async () => {
-        expect(wrapper.queryByText('drop1')).not.toBeVisible(); // 需要先引入 css 文件
+        expect(wrapper.queryByText('drop1')).not.toBeInTheDocument(); // 需要先引入 css 文件
         const dropdownElement = wrapper.getByText('submenu');
         fireEvent.mouseEnter(dropdownElement);
         await waitFor(() => {

@@ -1,9 +1,9 @@
 import React, {FunctionComponentElement, useContext, useState} from "react";
 import classNames from "classnames";
-import { CSSTransition } from 'react-transition-group';
 import Icon from "../Icon/icon";
 import {MenuContext} from "./Menu";
 import {MenuItemProps} from "./MenuItem";
+import Transition from '../Transition/transition';
 
 export interface SubMenuProps {
     index?: string;
@@ -55,17 +55,15 @@ const SubMenu: React.FC<SubMenuProps> = ({ index, title, children, className }) 
             }
         });
         return (
-            <CSSTransition
+            <Transition
                 in={menuOpen}
-                appear //假如第一次就是 true
                 timeout={300}
-                classNames="zoom-in-top"
-                unmountOnExit // menuOpen false 的时候  子节点不存在
+                animation="zoom-in-top"
             >
                 <ul className={subMenuClasses}>
                     {childrenComponent}
                 </ul>
-            </CSSTransition>
+            </Transition>
         )
     }
     return (
